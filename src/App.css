@@ -1,0 +1,74 @@
+.ant-card-body {
+    padding: 0;
+    width: 500px;
+    height: 470px;
+    /*background: #feffe6;*/
+    background-image: linear-gradient(to right, #c6e4ec, #dae7bc, #e8c89d);
+
+}
+
+.ant-tabs-nav {
+    padding: 0 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border: transparent;
+    margin: 0;
+
+}
+
+.ant-tabs-nav::before {
+    display: none;
+}
+
+.ant-tabs {
+    height: 100%;
+}
+
+.ant-tabs-content, .ant-tabs-content-holder {
+    height: 100%;
+}
+
+
+.ant-rate {
+    width: 150px;
+}
+
+.ant-col {
+    text-align: center;
+}
+
+.search .ant-btn {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.deleteBtn {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.deleteBtn:hover {
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.ant-form-item-control-input-content {
+    text-align: left;
+}
+
+.ant-modal-content {
+    width: 400px;
+}
+
+/*.ant-form-item-row{*/
+/*    flex-flow: row nowrap;*/
+/*}*/
+
+
+.ant-form-item {
+    margin-bottom: 0;
+}
+
+.ant-col.ant-form-item-label {
+    padding: 0;
+}

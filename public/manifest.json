@@ -1,0 +1,17 @@
+{
+  "name": "MBTI edge extension",
+  "version": "1.0",
+  "description": "MBTI edge extension with react.js Demo。",
+  "manifest_version": 3,
+  "permissions": ["storage","declarativeContent"],
+  "host_permissions":[
+    "https://mbtimaster.azurewebsites.net/"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "React "
+  },
+  "icons": {
+  }
+
+}
