@@ -1,20 +1,19 @@
 ## How to run edge extensions
-1. 打包插件 `npm run build`
 
+1. 打包插件   ` yarn run build`
 2. 在 edge 浏览器里打开插件中心：edge://extensions，打开开发者模式
 3. 点击上传 package，选择文件夹下的 build 文件夹上传
 4. 点击插件的图标后，效果如下：
-   
 
 ![](public/readmeimg.png)
 
-##  How to develop an edge extension with react.js
+## How to develop an edge extension with react.js
 
  **manifest.json**
 
 该文件是 edge 插件的配置文件，目的是告诉加载插件的浏览器各个资源文件去哪里取，插件配置信息等等，这个是每个 edge 插件必不可少的组成部分，更多关于 manifest.json 的配置信息：https://developer.chrome.com/docs/extensions/mv3/
 
-``` js
+```js
 {
   "name": "MBTI edge extension",
   "version": "1.0",

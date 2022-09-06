@@ -4,7 +4,7 @@ import axios from "axios";
 
 function KeyWordCard({}) {
 	const alphabet = ["E", "I", "S", "N", "T", "F", "J", "P"]
-	const character = ["INTI", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP",]
+	const character = ["INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP",]
 	const Content = ({item}) => {
 		const [content, setContent] = useState("")
 		useEffect(
@@ -22,7 +22,7 @@ function KeyWordCard({}) {
 			background: "white",
 			width: 450,
 			height: 250,
-			borderRadius: 5,
+			borderRadius: 14,
 			display: "flex",
 			flexDirection: "row",
 			alignItems: "center"
@@ -42,7 +42,7 @@ function KeyWordCard({}) {
 					<Col span={24} style={{color: "gray"}}>每个字母含义</Col>
 					{alphabet.map(item => {
 						return <Col span={12}><Popover content={<Content item={item}/>} trigger="hover">
-							<Button size="small" style={{width: 60}}
+							<Button size="small" style={{width: 50}} 
 							        >{item}</Button>
 						</Popover></Col>
 					})}
@@ -52,7 +52,7 @@ function KeyWordCard({}) {
 			<div style={{
 				width: 1,
 				height: 200,
-				background: "gray",
+				background: "",
 				margin: 1
 			}}></div>
 			<div style={{

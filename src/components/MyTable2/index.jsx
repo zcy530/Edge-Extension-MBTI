@@ -1,5 +1,6 @@
 import React from 'react';
 import {Rate, Table} from "antd";
+import {HeartFilled } from '@ant-design/icons';
 
 
 function MyTable({contacts}) {
@@ -27,7 +28,8 @@ function MyTable({contacts}) {
 			title: '匹配程度',
 			dataIndex: 'match',
 			render: value => {
-				return <Rate allowHalf value={value} count={5} disabled/>
+				const num = Math.floor(Math.random()*(5))+1;
+				return <Rate character={<HeartFilled />} style={{color:'purple'}} disabled allowHalf defaultValue={num} count={5} />
 			}
 		}
 	]

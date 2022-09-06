@@ -3,6 +3,17 @@ import axios from "axios"
 
 const MessageBar = React.memo(function () {
 	const [message, setMessage] = useState("")
+	const [showThumbup, setShowThumbup] = useState(false)
+	const [showThumbDown, setShowThumbDown] = useState(false)
+
+	const changeThumbup = () => {
+		setShowThumbup(!showThumbup)
+	}
+
+	const changeThumbdown = () => {
+		setShowThumbDown(!showThumbDown)
+	}
+	
 	useEffect(() => {
 		axios.get("https://mbtimaster.azurewebsites.net/funfact").then(value => {
 			console.log(value)
@@ -20,7 +31,7 @@ const MessageBar = React.memo(function () {
 				width: 450,
 				height: 60,
 				background: "rgba(255, 255, 255, 1)",
-				borderRadius: 5,
+				borderRadius: 14,
 				padding: 10,
 				fontSize: 16,
 				display: "flex",
@@ -30,8 +41,10 @@ const MessageBar = React.memo(function () {
 			}}>
 				<div>{message}</div>
 				<div>
-					<a><img src="./imgs/dianzan.svg" width={20} alt=""/></a>
-					<a><img src="./imgs/fandui.svg" width={20} alt=""/></a>
+					<a><img src={showThumbup? "./imgs/thumbup focus.svg":"./imgs/thumbup.svg"} 
+					            width={20} alt="" onClick={changeThumbup} style={{marginRight:"10px"}} /></a>
+					<a><img src={showThumbDown? "./imgs/thumbsDown focus.svg":"./imgs/thumbsDown.svg"} 
+					            width={19} alt="" onClick={changeThumbdown}/></a>
 				</div>
 
 			</div>

@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Col, Form, Input, Modal, Rate, Row, Table, Tabs} from "antd"
+import {Button, Card, Form, Input, Modal, Tabs, Select } from "antd"
 import "./App.css"
 import MessageBar from "./components/MessageBar";
-import {CloseOutlined, SearchOutlined} from "@ant-design/icons"
+import {SearchOutlined} from "@ant-design/icons"
 import KeyWordCard from "./components/KeyWordCard";
 import MyTable from "./components/MyTable";
 import MyTable2 from "./components/MyTable2";
 
 const {TabPane} = Tabs
+const { Option } = Select
 
 function App() {
 	const [form] = Form.useForm()
@@ -21,11 +22,21 @@ function App() {
 	const manageContacts = () => {
 		setManage(!manage)
 	}
+	const hashmap = new Map()
+	hashmap.set("ESFP",5)
+	hashmap.set("INTJ",3)
+	hashmap.set("ISTJ",4)
+	hashmap.set("ENTP",2)
+	hashmap.set("INFP",3.5)
+
+
 	const addContact = () => {
 		setVisible(true)
 	}
 	const handleModelOk = () => {
 		setVisible(false)
+		const mbti = form.getFieldValue("mbti")
+		form.setFieldValue("match", hashmap.get(mbti))
 		const newContact = form.getFieldsValue(true)
 		setContacts([...contacts, {key: newContact.name, ...newContact}])
 		console.log([...contacts, {key: newContact.name, ...newContact}])
@@ -82,12 +93,13 @@ function App() {
 								flexDirection: "column",
 								justifyContent: "center",
 								alignItems: "center",
-								paddingTop: 30
+								paddingTop: 30,
+								marginTop: 30
 							}}>
 								<img style={{
-									width: 150,
-									height: 100
-								}} src="./imgs/undraw_coffee_with_friends_3cbj.svg" alt=""/>
+									width: 300,
+									height: 250
+								}} src="./imgs/Vector.png" alt=""/>
 								<div>开始添加你的联系人的MBTI吧！</div>
 								<div style={{
 									paddingTop: 10
@@ -113,10 +125,11 @@ function App() {
 						<Input
 							placeholder="输入MBTI人格或联系人姓名进行搜索"
 							style={{
-								borderRadius: 5,
+								borderRadius: 14,
 								width: 450,
 								height: 40,
-								marginBottom: 10
+								marginBottom: 20,
+								marginTop:20
 							}}
 							onChange={handleSearch}
 							value={searchValue}
@@ -137,16 +150,17 @@ function App() {
 								flexDirection: "column",
 								justifyContent: "center",
 								alignItems: "center",
-								paddingTop: 30
+								paddingTop: 30,
+								marginTop: 30
 							}}>
 								<img style={{
-									width: 150,
-									height: 100
+									width: 200,
+									height: 150
 								}} src="./imgs/undraw_coffee_with_friends_3cbj.svg" alt=""/>
 								<div>开始测试你的MBTI吧！</div>
-								<div style={{
-									paddingTop: 10
-								}}><Button type="primary" onClick={addContact}>测试链接</Button></div>
+								<div style={{paddingTop: 10}}>
+									<Button type="primary" ><a href="https://www.16personalities.com/" target="_blank" rel="noreferrer">测试链接</a></Button>
+							    </div>
 							</div>
 						
 						<MessageBar/>
@@ -188,7 +202,24 @@ function App() {
 							},
 						]}
 					>
-						<Input placeholder="请输入MBTI" size={"small"}/>
+						<Select placeholder="请选择关系" size={"small"}>
+						    <Option value="ESFP">ESFP</Option>
+							<Option value="INTJ">INTJ</Option>
+						    <Option value="ISTJ">ISTJ</Option>
+							<Option value="ENTP">ENTP</Option>
+							<Option value="INFP">INFP</Option>
+							<Option value="ENFP">ENFP</Option>
+							<Option value="INFJ">INFJ</Option>
+							<Option value="ENFJ">ENFJ</Option>
+							<Option value="ENTJ">ENTJ</Option>
+							<Option value="INTP">INTP</Option>
+							<Option value="ISFP">ISFP</Option>
+							<Option value="ISTP">ISTP</Option>
+							<Option value="ESTP">ESTP</Option>
+							<Option value="ISFJ">ISFJ</Option>
+							<Option value="ESFJ">ESFJ</Option>
+							<Option value="ESTJ">ESTJ</Option>
+						</Select>
 					</Form.Item>
 					<Form.Item
 						name={"relationship"}
@@ -200,11 +231,19 @@ function App() {
 							},
 						]}
 					>
-						<Input placeholder="请输入关系" size={"small"}/>
+						<Select placeholder="请选择关系" size={"small"}>
+							<Option value="自己">自己</Option>
+							<Option value="同事">同事</Option>
+							<Option value="朋友">朋友</Option>
+							<Option value="恋人">恋人</Option>
+							<Option value="领导">领导</Option>
+							<Option value="家人">家人</Option>
+						</Select>
+						{/* <Input placeholder="请输入关系" size={"small"}/> */}
 					</Form.Item>
-					<Form.Item name={"match"} label="匹配程度:">
+					{/* <Form.Item name={"match"} label="匹配程度:">
 						<Rate style={{textAlign: "left"}} onChange={value => form.setFieldValue("match", value)}></Rate>
-					</Form.Item>
+					</Form.Item> */}
 				</Form>
 			</Modal>
 		</Card>
