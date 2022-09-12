@@ -22,12 +22,27 @@ function App() {
 	const manageContacts = () => {
 		setManage(!manage)
 	}
+	
 	const hashmap = new Map()
 	hashmap.set("ESFP",5)
 	hashmap.set("INTJ",3)
 	hashmap.set("ISTJ",4)
 	hashmap.set("ENTP",2)
+
 	hashmap.set("INFP",3.5)
+	hashmap.set("ENFP",2)
+	hashmap.set("INFJ",3)
+	hashmap.set("ENFJ",5)
+
+	hashmap.set("ENTJ",2.5)
+	hashmap.set("INTP",1)
+	hashmap.set("ISFP",5)
+	hashmap.set("ISTP",3)
+
+	hashmap.set("ESTP",2)
+	hashmap.set("ISFJ",4)
+	hashmap.set("ESFJ",3)
+	hashmap.set("ESTJ",5)
 
 
 	const addContact = () => {

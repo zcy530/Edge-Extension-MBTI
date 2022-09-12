@@ -39,8 +39,9 @@ const MessageBar = React.memo(function () {
 				justifyContent: "space-between"
 
 			}}>
-				<div>{message}</div>
+				<div>{showThumbup||showThumbDown? '有67%的人跟你有一样的想法':message}</div>
 				<div>
+					
 					<a><img src={showThumbup? "./imgs/thumbup focus.svg":"./imgs/thumbup.svg"} 
 					            width={20} alt="" onClick={changeThumbup} style={{marginRight:"10px"}} /></a>
 					<a><img src={showThumbDown? "./imgs/thumbsDown focus.svg":"./imgs/thumbsDown.svg"} 
